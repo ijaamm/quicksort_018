@@ -1,10 +1,10 @@
 #include <iostream>
 using namespace std;
 
-																			//array of integers to hold values
+//array of integers to hold values
 int arr[20];
-int cmp_count = 0;															//number of comparasion
-int mov_count = 0;															//number of data movements
+int cmp_count = 0;//number of comparasion
+int mov_count = 0;//number of data movements
 int n;
 
 void input() {
@@ -29,7 +29,7 @@ void input() {
 		cin >> arr[i];
 	}
 }
-																			//swaps the element at index x with the element at index y
+//swaps the element at index x with the element at index y
 void swap(int x, int y)
 {
 	int temp;
@@ -42,22 +42,22 @@ void swap(int x, int y)
 void q_sort(int low, int high)
 {
 	int pivot, i, j;
-	if (low > high)															//langkah 1
+	if (low > high)//langkah 1
 		return;
-																			//partition the list into two parts
-																			//one containing elements less that or equal to pivot
-																			//outher countaining elements greather than pivot
+	//partition the list into two parts
+	//one containing elements less that or equal to pivot
+	//outher countaining elements greather than pivot
 
-	pivot = arr[low];														//langkah 2
+	pivot = arr[low];//langkah 2
 
-	i = low + 1;															//langkah 3
-	j = high;																//langkah 4
+	i = low + 1;//langkah 3
+	j = high;//langkah 4
 
 
-	while (i <= j)															//langkah 10
+	while (i <= j)//langkah 10
 	{
-																			//search for an element greater than pivot
-		while ((arr[i] <= pivot) && (i <= high))							//langkah 5
+		//search for an element greater than pivot
+		while ((arr[i] <= pivot) && (i <= high))//langkah 5
 		{
 			i++;
 			cmp_count++;
@@ -90,5 +90,19 @@ void q_sort(int low, int high)
 	q_sort(low, j - 1); //langkah 12
 
 	//sort the list on the righ of pivot using quick sort
-	q_sor(j + 1, high);//langkah 13
+	q_sort(j + 1, high);//langkah 13
+}
+
+void display() {
+	cout << "\n___________________" << endl;
+	cout << "Sorted Array" << endl;
+	cout << "___________________" << endl;
+
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << " ";
+	}
+
+	cout << "\n\nNumber of comparasion" << cmp_count << endl;
+	cout << "Number of data movements: " << mov_count << endl;
 }
