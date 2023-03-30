@@ -42,8 +42,9 @@ void swap(int x, int y)
 void q_sort(int low, int high)
 {
 	int pivot, i, j;
-	if (low > high)//langkah 1
+	if (low > high) {//langkah 1
 		return;
+	}
 	//partition the list into two parts
 	//one containing elements less that or equal to pivot
 	//outher countaining elements greather than pivot
@@ -72,7 +73,7 @@ void q_sort(int low, int high)
 		cmp_count++;
 
 		//langkah 9
-		if (low < j) //if the greater element is on the left of the element
+		if (i < j) //if the greater element is on the left of the element
 		{
 			//swap the element at index i with the element at index j
 			swap(i, j);
@@ -80,7 +81,7 @@ void q_sort(int low, int high)
 		}
 	}
 	//j now containt the index of the last element in the sorted list
-	if (low > j) //langkah 11
+	if (low < j) //langkah 11
 	{
 		//move the pivot to its correct position in the list
 		swap(low, j);
@@ -103,7 +104,7 @@ void display() {
 		cout << arr[i] << " ";
 	}
 
-	cout << "\n\nNumber of comparasion" << cmp_count << endl;
+	cout << "\n\nNumber of comparasion : " << cmp_count << endl;
 	cout << "Number of data movements: " << mov_count << endl;
 }
 
